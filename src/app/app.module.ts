@@ -10,14 +10,16 @@ import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestor
 import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { ChatComponent } from './components/chat/chat.component';
 
-import {ChatService} from "./providers/chat.service"
+import {ChatService} from "./providers/chat.service";
+import { LoginComponent } from './componets/login/login.component'
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

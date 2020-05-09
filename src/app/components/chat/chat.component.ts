@@ -10,15 +10,21 @@ import { ChatService } from '../../providers/chat.service';
 export class ChatComponent implements OnInit {
 
   mensaje:string = "";
+  elemento:any;
 
   constructor(public _cs: ChatService) {
     
     this._cs.cargarMensajes()
-            .subscribe();
+            .subscribe(()=>{
+              setTimeout(()=>{
+                this.elemento.scrollTop = this.elemento.scrollHeight;
+
+              },20)
+            });
   }
 
   ngOnInit(){
-
+    this.elemento=document.getElementById('app-mensajes')
   }
 
   enviarMensaje()
@@ -33,7 +39,7 @@ export class ChatComponent implements OnInit {
     return this._cs.agregarMensaje(this.mensaje)
             .then(()=>this.mensaje="")
             .catch((err)=>console.log('Error al enviar', err));
-    this.mensaje="";
+    
   }
 
 }
