@@ -16,15 +16,14 @@ export class ChatComponent implements OnInit {
     
     this._cs.cargarMensajes()
             .subscribe(()=>{
-              setTimeout(()=>{
+              setTimeout( ()=>{
                 this.elemento.scrollTop = this.elemento.scrollHeight;
-
-              },20)
+              },20);
             });
   }
 
   ngOnInit(){
-    this.elemento=document.getElementById('app-mensajes')
+    this.elemento = document.getElementById("app-mensajes");
   }
 
   enviarMensaje()
